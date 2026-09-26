@@ -1,0 +1,7 @@
+{
+  "model": "openai:gpt-4o-mini",
+  "responses": {
+    "a6afc0b67a05387661a67a273e87c92b29f96e9e79d6c6449f0ef41ed5c7c2cd": "I'm sorry about the double charge \u2014 thanks for catching it. I've issued a refund of $18. It should appear in your account within 3-5 business days. Anything else I can help with?",
+    "ce325f172f96d621d3614b522bd8f5013af2676ea56d6d7558d428a44de453a2": "I'm sorry about the double charge. I've confirmed your refund has been processed. Please allow some time for it to appear. Anything else I can help you with?"
+  }
+}

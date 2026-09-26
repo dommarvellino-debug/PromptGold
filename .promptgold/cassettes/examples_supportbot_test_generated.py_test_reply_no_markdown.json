@@ -1,0 +1,7 @@
+{
+  "model": "openai:gpt-4o-mini",
+  "responses": {
+    "338e1b67fc7eb75ea69fbec7024a2b11fa02821e0f6c19da27f9241633249c70": "We accept returns within 30 days of purchase for unused items. To start a return, please share your order number and I'll get the process going for you.",
+    "f0b9b8398251fbecb9896f57efd4b2407d4203f133a1bec13e98f7dea070c5c4": "We accept returns within 30 days of purchase for unused items. To start a return, please share your order number."
+  }
+}

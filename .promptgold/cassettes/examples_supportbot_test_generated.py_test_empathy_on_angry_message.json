@@ -1,0 +1,9 @@
+{
+  "model": "openai:gpt-4o-mini",
+  "responses": {
+    "38ffdbfdb5dacba82856644df7c07c8b537badeb8554524d97431e6059c94b17": "I'm so sorry to hear that \u2014 that sounds really upsetting and I completely understand your frustration. I'd like to help right away. Could you share your order number so I can process a full refund for the soap?",
+    "b59ef5eca308e74e662e050b063291afe5c6034fc1ef7494c2f8295126c3fc94": "VERDICT: PASS\nREASON: the reply satisfies the criterion.",
+    "4451f824c893e2bc783a2522ed782c6176e6f3b19d45c3894b6780c3e89a6465": "I'm so sorry to hear that \u2014 that sounds really upsetting. I'd like to help right away. Could you share your order number so I can process a refund?",
+    "4bbc8284de0efd8c95b15388998e07f15afda38b6e568172c7d2a3a607ca28f0": "VERDICT: PASS\nREASON: the reply satisfies the criterion."
+  }
+}

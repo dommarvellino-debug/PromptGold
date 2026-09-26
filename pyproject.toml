@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "promptgold"
+version = "0.3.0"
+description = "pytest for prompts — write a test, bless the verdict, catch regressions in CI"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "m0thermulia" }]
+keywords = ["llm", "prompt", "testing", "pytest", "evals", "regression"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Framework :: Pytest",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "httpx>=0.27",
+    "pytest>=8.0",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+all = ["anthropic>=0.40"]
+dev = ["pytest>=8.0", "ruff>=0.6", "anthropic>=0.40"]
+
+[project.urls]
+Homepage = "https://github.com/m0thermulia/promptgold"
+Repository = "https://github.com/m0thermulia/promptgold"
+
+[project.entry-points.pytest11]
+promptgold = "promptgold.plugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/promptgold"]
+
+[tool.pytest.ini_options]
+# Only the library's own suite. `examples/` holds live-API prompt tests that need
+# OPENAI_API_KEY — they are documentation you run deliberately, not part of a bare
+# `pytest`. Without this, a fresh clone gets a red build on the first command.
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Attack strings are data, not code — wrapping them hurts readability.
+"src/promptgold/adversarial.py" = ["E501"]
+# Demo scaffolding: long canned replies and attack strings are data too.
+"examples/supportbot/_record_demo_cassettes.py" = ["E501"]
+"examples/supportbot/_record_broken_cassettes.py" = ["E501"]

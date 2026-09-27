@@ -27,13 +27,15 @@ def project(tmp_path):
         "    def forbidden(self, **kwargs):\n"
         "        Path('model-called').write_text(self.spec)\n"
         "        raise AssertionError('underlying model called')\n"
-        "    monkeypatch.setattr(Model, 'complete', forbidden)\n"
+        "    monkeypatch.setattr(Model, 'complete', forbidden)\n",
+        encoding="utf-8",
     )
     (tmp_path / "test_prompt.py").write_text(
         "from promptgold import prompt_test\n"
         "@prompt_test(model='openai:bot')\n"
         "def test_prompt(llm):\n"
-        "    assert llm.complete(user='hello') == 'recorded reply'\n"
+        "    assert llm.complete(user='hello') == 'recorded reply'\n",
+        encoding="utf-8",
     )
     return tmp_path
 
@@ -57,9 +59,10 @@ def seed_cassette(project, spec="openai:bot", *, system="", user="hello",
         "test_prompt.py::test_prompt", "" if legacy else spec
     )
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({
-        "model": spec, "responses": {_key(spec, system, user): response},
-    }))
+    path.write_text(
+        json.dumps({"model": spec, "responses": {_key(spec, system, user): response}}),
+        encoding="utf-8",
+    )
     return path
 
 
@@ -77,7 +80,9 @@ def test_offline_missing_cassette_never_calls_model(project):
 
 def test_offline_rejects_no_cassette_before_collection(project):
     # A configuration error must stop even collection-time user code.
-    (project / "test_prompt.py").write_text("raise AssertionError('test was collected')\n")
+    (project / "test_prompt.py").write_text(
+        "raise AssertionError('test was collected')\n", encoding="utf-8"
+    )
     result = run_pytest(project, "--offline", "--no-cassette")
     output = result.stdout + result.stderr
     assert result.returncode == 4, output
@@ -103,7 +108,8 @@ def test_offline_judge_never_calls_model(project, selection, recorded):
         "@prompt_test(model='openai:bot')\n"
         "def test_prompt(llm):\n"
         "    r = llm.complete(user='hello')\n"
-        f"    assert judge(r, 'Is it helpful?'{judge_args[selection]})\n"
+        f"    assert judge(r, 'Is it helpful?'{judge_args[selection]})\n",
+        encoding="utf-8",
     )
     if recorded:
         seed_cassette(
@@ -183,10 +189,10 @@ def test_offline_missing_entry_never_records(project):
 
 def test_offline_corrupt_cassette_never_calls_model(project):
     path = seed_cassette(project)
-    path.write_text("not valid json")
+    path.write_text("not valid json", encoding="utf-8")
     result = run_pytest(project, "--offline")
     output = result.stdout + result.stderr
     assert result.returncode == 1, output
     assert "JSONDecodeError" in output
     assert not (project / "model-called").exists()
-    assert path.read_text() == "not valid json"
+    assert path.read_text(encoding="utf-8") == "not valid json"

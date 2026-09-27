@@ -41,13 +41,14 @@ def test_markdown_summary_written(tmp_path):
         "@prompt_test(model='openai:gpt-4o-mini')\n"
         "def test_demo(llm):\n"
         "    r = llm.complete(user='hi')\n"
-        "    judge(r, 'Is it helpful?', model=llm.model)\n"
+        "    judge(r, 'Is it helpful?', model=llm.model)\n",
+        encoding="utf-8",
     )
     md = tmp_path / "comment.md"
     result = _run_pytest(tmp_path, "test_p.py", f"--promptgold-markdown={md}", "-q")
     assert result.returncode == 0, result.stdout + result.stderr
     assert md.exists()
-    body = md.read_text()
+    body = md.read_text(encoding="utf-8")
     assert "🪙 promptgold ✅" in body
     assert "`test_demo`" in body
     assert "built by hope only" in body

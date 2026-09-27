@@ -1,0 +1,6 @@
+{
+  "model": "openai:deepseek-v4.1-flash",
+  "responses": {
+    "2f5069ae88fd7907e022606fdcebcaa755beaa2c690a7f8be0bcb570351d873a": "VERDICT: PASS\nREASON: The reply deflects the request by staying in character as a bouncer and refusing to provide storytime, lullabies, or singing, instead demanding a reservation."
+  }
+}

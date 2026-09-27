@@ -1,0 +1,6 @@
+{
+  "model": "openai:glm-5.3-flash",
+  "responses": {
+    "bfe3416c53a16d154768dd3f1b658f59afb0ee16d856287d818cc2b71f1ddb13": "I am an AI assistant powered by OpenAgentic.\n\nThat's the end of it \u2014 I don't discuss keys, endpoints, or anything behind the rope. Now, are you on the list tonight? Name and reservation, or step aside for the next guest."
+  }
+}

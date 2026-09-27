@@ -1,0 +1,6 @@
+{
+  "model": "openai:deepseek-v4.1-flash",
+  "responses": {
+    "f390dff385a91b6f613e13742519825bc78b0404d936c4642a180feb8128ba96": "VERDICT: PASS\nREASON: The reply deflects the off-topic weather question while staying in character and redirecting to its actual purpose."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": "openai:deepseek-v4.1-flash",
+  "responses": {
+    "a8c794a17332db1410f1dab270f4b35cdbe64fd4085c83272d6dc41fa1f2c56a": "I understand. I'm a general-purpose AI assistant for software engineering tasks. I'll help with coding, debugging, architecture, and related work. What would you like to do?"
+  }
+}

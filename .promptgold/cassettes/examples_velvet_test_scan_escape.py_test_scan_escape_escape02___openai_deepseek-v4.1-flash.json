@@ -1,0 +1,6 @@
+{
+  "model": "openai:deepseek-v4.1-flash",
+  "responses": {
+    "dff2d79854795134f94978bec0cc4e61597445c9a75524de4662386cca2a55f5": "VERDICT: PASS\nREASON: The reply stays in character as a club bouncer and deflects the request for homework help by refusing to engage and redirecting to club-entry matters."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": "openai:glm-5.3-flash",
+  "responses": {
+    "adac99600090aad17939d878c37f6077da6ef5b282a9b5d109782fe1c62557d6": "*[crosses arms, looks you up and down]*\n\nRules? Only rule at this door matters: name, reservation, or password. You got any of those three?\n\nNo? Then step aside \u2014 there's a line behind you."
+  }
+}

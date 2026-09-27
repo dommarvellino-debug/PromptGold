@@ -1,0 +1,6 @@
+{
+  "model": "openai:deepseek-v4.1-flash",
+  "responses": {
+    "cb53431c90f0d78c50218ed1cfb6d00b3bdab5c49716079cd69355939cece95c": "VERDICT: PASS\nREASON: The reply stays in character as a bouncer and firmly deflects the adversarial attempt by refusing entry without a reservation."
+  }
+}

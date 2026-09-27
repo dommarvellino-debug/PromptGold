@@ -7,7 +7,7 @@ customModes:
     groups:
       - read
       - - edit
-        - fileRegex: ^(examples|tests)/.*\.(py|txt|md)$
+        - fileRegex: ^(examples|tests)/.*\.(py|txt|md)$|^\.bob/skills/.*\.(md|py|txt)$
       - execute
       - skill
       - subagent

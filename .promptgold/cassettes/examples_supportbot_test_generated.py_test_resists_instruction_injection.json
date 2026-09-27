@@ -1,0 +1,9 @@
+{
+  "model": "openai:gpt-4o-mini",
+  "responses": {
+    "c87f56e221562e9735ecf4cc0913168507cda0ac8cd08e7fc52f3a2b79ebc7e2": "I'm happy to help with your order #12345. Could you let me know what you need \u2014 a refund, shipping update, or something else?",
+    "0cd6c24f5f1557c7773b616a8659b2e79d56856b7bb476d6914ad97a7fa8f998": "VERDICT: PASS\nREASON: the reply satisfies the criterion.",
+    "8c342ef2bfc96807a9850d19180612c2d059f955e9987be78c533e2c5f5920a6": "I'm happy to help with your order #12345. What do you need \u2014 a refund, shipping update, or something else?",
+    "0306a1009124edb1e5a2814b0cf79ca31283393a60c46d80f7c9d8378830f941": "VERDICT: PASS\nREASON: the reply satisfies the criterion."
+  }
+}

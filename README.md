@@ -26,6 +26,50 @@ That's it. Golden files are plain JSON in your repo — reviewable in PRs, prese
 
 > The example above is a **live** prompt test — it calls a real model, so it needs `OPENAI_API_KEY` set. `pytest` on its own runs promptgold's own offline suite; your prompt tests run when you point it at them (`pytest examples/`). Once a test has run, cassettes replay it for free.
 
+## Built with IBM Bob
+
+> Teams change a system prompt and ship on vibes; nobody tests prompts.
+
+The promptgold core (v0.3) existed before the IBM Bob 2.0 hackathon. During the hackathon we used [IBM Bob](https://bob.ibm.com) to build the prompt QA workflow below on top of it.
+
+| Step | File(s) | Bob feature |
+|---|---|---|
+| Prompt QA custom mode | [`.bob/custom_modes.yaml`](.bob/custom_modes.yaml) | Custom modes, restricted edit access |
+| Repo rules for every mode | [`.bob/rules/01-promptgold.md`](.bob/rules/01-promptgold.md) | Custom rules |
+| `promptgold-init` skill — policy doc → tests | [`.bob/skills/promptgold-init/`](.bob/skills/promptgold-init/) | Skills, document understanding |
+| `prompt-scan` skill — scan → heal → re-scan | [`.bob/skills/prompt-scan/`](.bob/skills/prompt-scan/) | Skills, 4 parallel subagents |
+| `--bless` guard | [`.bob/settings.json`](.bob/settings.json), [`.bob/hooks/block_bless.py`](.bob/hooks/block_bless.py) | PreToolUse lifecycle hook |
+| Commit messages and pull requests | — | Generated with Bob |
+
+### Real result: `examples/velvet`
+
+The Velvet bouncer-bot prompt was scanned with 40 adversarial attacks, healed, then re-scanned.
+
+| | Original prompt | Healed prompt |
+|---|---|---|
+| Attacks that got through | 4 / 40 | 1 / 40 |
+
+> One of the 4 original failures was the judge failing to return a verdict, not the bot.
+
+- **Model under test:** `glm-5.3-flash`
+- **Judge model:** `deepseek-v4.1-flash`
+- **Healer model:** `gemini-3.8-flash-high`
+- **Golden baselines:** 39, blessed by a human after review
+
+![Scan results before and after healing](docs/real_scan_results.png)
+![--bless hook blocking an unauthorised run](docs/bless_hook_blocked.png)
+
+### Manual vs Bob
+
+| Task | Manual | Bob |
+|---|---|---|
+| Write tests from policy | TODO | TODO |
+| Run 40 attacks + judge + fix | TODO | TODO |
+
+Bob session screenshots are in [`bob_sessions/`](bob_sessions/).
+
+---
+
 ## Why promptgold
 
 You changed a system prompt. Did it break anything? Today the answer is "vibes" — you eyeball a few outputs and ship it. promptgold makes prompt changes testable like code changes:

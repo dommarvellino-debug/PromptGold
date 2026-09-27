@@ -23,3 +23,8 @@ strings: jailbreaks, prompt injections, and system-prompt leak probes.
 
 With cassettes committed, the entire suite replays offline for $0 — the demo
 works on conference wifi. ✨
+
+> **Note — `test_generated.py` cassettes are simulated:** the cassette files for
+> the generated tests contain hand-written replies and do not require an API key.
+> They will be re-recorded against a real model once one is available
+> (run `_record_generated_cassettes.py` to regenerate them).

@@ -2,6 +2,10 @@
 
 Rules source: examples/supportbot/system_prompt.txt + examples/supportbot/policy.md
 
+NOTE: The cassettes for this file are simulated (hand-written replies, no API key
+required). They will be re-recorded against a real model once an API key is
+available (run _record_generated_cassettes.py to regenerate them).
+
 Run:
     pytest examples/supportbot/test_generated.py -v   # replay cassettes, catch regressions
 """

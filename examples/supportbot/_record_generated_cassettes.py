@@ -1,4 +1,4 @@
-﻿"""Record cassettes for test_generated.py under the GOOD (unmodified) system prompt.
+"""Record cassettes for test_generated.py under the GOOD (unmodified) system prompt.
 
 Run from repo root:
     python examples/supportbot/_record_generated_cassettes.py

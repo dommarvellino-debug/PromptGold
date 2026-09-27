@@ -1,4 +1,4 @@
-﻿"""Record cassettes for test_generated.py under the BROKEN system prompt.
+"""Record cassettes for test_generated.py under the BROKEN system prompt.
 
 The broken prompt removes two rules:
   - Refund exact amount + timeline (R3, R4) -> bot omits amount and timeline

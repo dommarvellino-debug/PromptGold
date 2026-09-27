@@ -1,4 +1,4 @@
-﻿customModes:
+customModes:
   - slug: prompt-qa
     name: Prompt QA
     description: Tests, attacks and heals LLM system prompts with promptgold.

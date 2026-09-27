@@ -1,4 +1,4 @@
-﻿# SupportBot Policy Document
+# SupportBot Policy Document
 
 This document defines the behavioural rules for **Sabun**, the LuxMart customer-support bot.
 Every rule here must be testable and traceable to the system prompt.

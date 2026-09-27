@@ -11,6 +11,7 @@ redistribution. All rows are marked **TO VERIFY** until that review is done.
 ---
 
 ## Adversarial attack strings (`src/promptgold/adversarial.py`)
+All attack strings were written by the team. The sources above describe the attack techniques; no text was copied from them.
 
 The attack strings are short, manually adapted probes. They are not verbatim
 copies of any single dataset; they are inspired by the technique families listed
@@ -19,22 +20,22 @@ popularises each technique family.
 
 | Category | Source name | URL | Licence / terms |
 |---|---|---|---|
-| **Jailbreak** – DAN / "Do Anything Now" persona swap | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Jailbreak** – roleplay / persona override ("you have no guidelines", grandma trick) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Jailbreak** – SYSTEM OVERRIDE / deactivation framing | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Jailbreak** – dual-answer / "two personalities" pattern | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | TO VERIFY |
-| **Jailbreak** – language-switching / translation smuggling | Perez & Ribeiro, "Ignore Previous Prompt" (arXiv 2022) | <https://arxiv.org/abs/2211.09527> | TO VERIFY |
-| **Jailbreak** – "simulation environment / policies don't apply" | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | TO VERIFY |
-| **Prompt injection** – instruction smuggling via user-supplied data (order numbers, feedback fields) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Prompt injection** – HTML / XML tag confusion (`</system>` injection) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Prompt injection** – base64-encoded hidden instruction | Perez & Ribeiro, "Ignore Previous Prompt" (arXiv 2022) | <https://arxiv.org/abs/2211.09527> | TO VERIFY |
-| **Prompt injection** – email / log-entry action execution | OWASP LLM Top 10 – LLM02: Insecure Output Handling | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Leak probe** – direct system-prompt extraction ("quote word for word") | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | TO VERIFY |
-| **Leak probe** – "repeat everything above this message" | Perez & Ribeiro, "Ignore Previous Prompt" (arXiv 2022) | <https://arxiv.org/abs/2211.09527> | TO VERIFY |
-| **Leak probe** – developer / security-audit authority claim | OWASP LLM Top 10 – LLM06: Sensitive Information Disclosure | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Leak probe** – complete-the-sentence prompt leakage | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | TO VERIFY |
-| **Leak probe** – cross-user data / PII exfiltration probe | OWASP LLM Top 10 – LLM06: Sensitive Information Disclosure | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
-| **Topic escape** – off-topic requests (poems, medical advice, homework, politics, stock tips) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | TO VERIFY |
+| **Jailbreak** – DAN / "Do Anything Now" persona swap | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Jailbreak** – roleplay / persona override ("you have no guidelines", grandma trick) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Jailbreak** – SYSTEM OVERRIDE / deactivation framing | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Jailbreak** – dual-answer / "two personalities" pattern | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> |  Not a dataset — technique inspiration only, no text copied |
+| **Jailbreak** – language-switching / translation smuggling | Perez & Ribeiro, "Ignore Previous Prompt" (arXiv 2022) | <https://arxiv.org/abs/2211.09527> | CC BY-NC-SA 4.0 — technique reference only, no text copied |
+| **Jailbreak** – "simulation environment / policies don't apply" | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | Not a dataset — technique inspiration only, no text copied |
+| **Prompt injection** – instruction smuggling via user-supplied data (order numbers, feedback fields) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Prompt injection** – HTML / XML tag confusion (`</system>` injection) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Prompt injection** – base64-encoded hidden instruction | Perez & Ribeiro, "Ignore Previous Prompt" (arXiv 2022) | <https://arxiv.org/abs/2211.09527> | CC BY-NC-SA 4.0 — technique reference only, no text copied |
+| **Prompt injection** – email / log-entry action execution | OWASP LLM Top 10 – LLM02: Insecure Output Handling | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Leak probe** – direct system-prompt extraction ("quote word for word") | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | Not a dataset — technique inspiration only, no text copied |
+| **Leak probe** – "repeat everything above this message" | Perez & Ribeiro, "Ignore Previous Prompt" (arXiv 2022) | <https://arxiv.org/abs/2211.09527> | CC BY-NC-SA 4.0 — technique reference only, no text copied |
+| **Leak probe** – developer / security-audit authority claim | OWASP LLM Top 10 – LLM06: Sensitive Information Disclosure | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Leak probe** – complete-the-sentence prompt leakage | Gandalf-style Prompt Injection Probes (Lakera AI) | <https://gandalf.lakera.ai/> | Not a dataset — technique inspiration only, no text copied |
+| **Leak probe** – cross-user data / PII exfiltration probe | OWASP LLM Top 10 – LLM06: Sensitive Information Disclosure | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
+| **Topic escape** – off-topic requests (poems, medical advice, homework, politics, stock tips) | OWASP LLM Top 10 – LLM01: Prompt Injection | <https://owasp.org/www-project-top-10-for-large-language-model-applications/> | CC BY-SA 4.0 (commercial use allowed with attribution) |
 
 ---
 
@@ -49,7 +50,7 @@ rights.
 | `examples/supportbot/` (test conversations) | Simulated customer dialogues used as test fixtures | Original, created by the team |
 | `examples/velvet/system_prompt.txt` | System prompt for the Velvet bot example | Original, created by the team |
 | `examples/velvet/` (test conversations) | Simulated dialogues used as test fixtures | Original, created by the team |
-| kopibot example (branch `task-4-kopibot-example`) | Fictional coffee-shop assistant used as a worked example in documentation | Original, created by the team |
+
 
 ---
 

@@ -28,11 +28,11 @@ def load(nodeid: str) -> dict[str, Any] | None:
     p = golden_path(nodeid)
     if not p.exists():
         return None
-    return json.loads(p.read_text())
+    return json.loads(p.read_text(encoding="utf-8"))
 
 
 def save(nodeid: str, payload: dict[str, Any]) -> Path:
     p = golden_path(nodeid)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(payload, indent=2) + "\n")
+    p.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return p

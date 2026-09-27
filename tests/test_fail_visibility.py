@@ -48,7 +48,7 @@ def _run_pytest(cwd: Path, *args: str) -> subprocess.CompletedProcess:
 
 
 def test_failing_test_appears_in_reports(tmp_path):
-    (tmp_path / "test_f.py").write_text(FAILING_PROJECT.format(verdict="FAIL"))
+    (tmp_path / "test_f.py").write_text(FAILING_PROJECT.format(verdict="FAIL"), encoding="utf-8")
     md = tmp_path / "comment.md"
     html = tmp_path / "report.html"
 
@@ -61,12 +61,12 @@ def test_failing_test_appears_in_reports(tmp_path):
     assert result.returncode != 0  # the test genuinely failed
 
     # The failure must be VISIBLE in both renderers, not silently dropped.
-    body = md.read_text()
+    body = md.read_text(encoding="utf-8")
     assert "test_will_fail" in body
     assert "❌" in body
     assert "What broke" in body
     assert "AssertionError" in body  # the failed assert is reported as an error
 
-    page = html.read_text()
+    page = html.read_text(encoding="utf-8")
     assert "test_will_fail" in page
     assert "stamp fail" in page

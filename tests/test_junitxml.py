@@ -60,7 +60,7 @@ def _run_pytest(cwd: Path, *args: str) -> subprocess.CompletedProcess:
 
 
 def _make_project(tmp_path: Path, verdict: str) -> Path:
-    (tmp_path / "test_prompts.py").write_text(PASS_E2E.format(verdict=verdict))
+    (tmp_path / "test_prompts.py").write_text(PASS_E2E.format(verdict=verdict), encoding="utf-8")
     return tmp_path
 
 
@@ -69,7 +69,7 @@ def test_junitxml_includes_prompt_tests(tmp_path):
     xml = tmp_path / "report.xml"
     result = _run_pytest(proj, "test_prompts.py", f"--junitxml={xml}", "-q")
     assert result.returncode == 0, result.stdout + result.stderr
-    content = xml.read_text()
+    content = xml.read_text(encoding="utf-8")
     assert "test_empathy" in content
     assert "<testsuite" in content
 
@@ -92,6 +92,6 @@ def test_junitxml_captures_golden_mismatch(tmp_path):
     assert result.returncode != 0, (
         f"STDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}"
     )
-    content = xml.read_text()
+    content = xml.read_text(encoding="utf-8")
     assert "GoldenMismatch" in content
     assert "<failure" in content

@@ -249,7 +249,7 @@ def pytest_terminal_summary(terminalreporter: Any, config: pytest.Config) -> Non
         from promptgold import report
 
         out = Path(report_path)
-        out.write_text(report.render(_run))
+        out.write_text(report.render(_run), encoding="utf-8")
         terminalreporter.write_line(f"promptgold: HTML report -> {out}")
 
     md_path = config.getoption("--promptgold-markdown")
@@ -257,7 +257,7 @@ def pytest_terminal_summary(terminalreporter: Any, config: pytest.Config) -> Non
         from promptgold import markdown
 
         out = Path(md_path)
-        out.write_text(markdown.render(_run))
+        out.write_text(markdown.render(_run), encoding="utf-8")
         terminalreporter.write_line(f"promptgold: markdown summary -> {out}")
 
 

@@ -88,9 +88,9 @@ class CassetteModel:
         # falling through to the live API and charging the user.
         legacy = CASSETTE_DIR / _slug(nodeid)
         if self.path.exists():
-            self._data = json.loads(self.path.read_text())
+            self._data = json.loads(self.path.read_text(encoding="utf-8"))
         elif legacy.exists():
-            self._data = json.loads(legacy.read_text())
+            self._data = json.loads(legacy.read_text(encoding="utf-8"))
             self._legacy_path = legacy
         else:
             self._legacy_path = None
@@ -125,6 +125,6 @@ class CassetteModel:
         if not self._dirty:
             return None
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(self._data, indent=2) + "\n")
+        self.path.write_text(json.dumps(self._data, indent=2) + "\n", encoding="utf-8")
         self._dirty = False
         return self.path

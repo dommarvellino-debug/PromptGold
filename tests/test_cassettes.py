@@ -31,7 +31,7 @@ def test_first_run_records(tmp_path, monkeypatch):
     path = m.save()
     assert path is not None and path.exists()
 
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     assert data["model"] == "fake:model"
     assert len(data["responses"]) == 1
 
@@ -57,7 +57,7 @@ def test_different_prompts_are_separate_entries(tmp_path, monkeypatch):
     assert m.complete(user="one") == "a"
     assert m.complete(user="two") == "b"
     m.save()
-    assert len(json.loads(m.path.read_text())["responses"]) == 2
+    assert len(json.loads(m.path.read_text(encoding="utf-8"))["responses"]) == 2
 
 
 def test_different_tests_get_different_cassettes(tmp_path, monkeypatch):
@@ -155,7 +155,8 @@ def test_legacy_cassette_filename_still_replays(tmp_path, monkeypatch):
                 "model": "openai:gpt-4o-mini",
                 "responses": {_key("openai:gpt-4o-mini", "", "hi"): "recorded reply"},
             }
-        )
+        ),
+        encoding="utf-8",
     )
 
     fake = Fake()
@@ -241,7 +242,8 @@ def test_plugin_wraps_model(stub_model, tmp_path, monkeypatch):
         "@prompt_test(model='stub:model')\n"
         "def test_something(llm):\n"
         "    r = llm.complete(user='hi')\n"
-        "    assert contains(r, 'happy')\n"
+        "    assert contains(r, 'happy')\n",
+        encoding="utf-8",
     )
     cassette = tmp_path / ".promptgold/cassettes/t_prompts_test.py_test_something__stub_model.json"
     # First run: records cassette (golden check warns, still passes).
@@ -250,5 +252,5 @@ def test_plugin_wraps_model(stub_model, tmp_path, monkeypatch):
 
     # Second run: replay serves the recorded response, no live call needed.
     assert run_pytest() == 0
-    data = json.loads(cassette.read_text())
+    data = json.loads(cassette.read_text(encoding="utf-8"))
     assert "happy" in next(iter(data["responses"].values()))

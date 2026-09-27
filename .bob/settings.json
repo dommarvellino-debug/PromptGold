@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "execute_command",
+        "hooks": [
+          { "type": "command", "command": "python3 .bob/hooks/block_bless.py" },
+          { "type": "command", "command": "python .bob/hooks/block_bless.py" }
+        ]
+      }
+    ]
+  }
+}

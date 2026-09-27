@@ -6,7 +6,7 @@ including the adversarial attack strings in
 fictional example data bundled in `examples/`.
 
 A human **must** verify the licence / terms column before any public release or
-redistribution. All rows are marked **TO VERIFY** until that review is done.
+redistribution. Licences were reviewed by the team on 2026-09-27.
 
 ---
 
